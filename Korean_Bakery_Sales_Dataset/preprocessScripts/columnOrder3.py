@@ -17,4 +17,4 @@ for col in moving_cols:
 dataset2 = dataset2[cols]
 
 # Sonuçları kaydetme
-dataset2.to_csv("../Datasets/KoreanDataset_2.0.cs", index=False)
+dataset2.to_csv("../Datasets/KoreanDataset_2.0.csv", index=False)
