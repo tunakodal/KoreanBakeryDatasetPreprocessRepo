@@ -2,6 +2,7 @@ import requests
 import csv
 
 # OpenWeatherMap API Key
+#api key yedek : REMOVED
 api_key = 'REMOVED'
 base_url = "http://api.openweathermap.org/data/2.5/weather?"
 
