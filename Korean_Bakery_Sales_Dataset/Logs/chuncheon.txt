@@ -1,0 +1,3 @@
+Belirtilen aralıktaki satır sayısı: 914
+Toplam satır sayısı: 1367
+Oran: 0.668617
