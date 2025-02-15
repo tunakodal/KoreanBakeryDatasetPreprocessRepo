@@ -22,7 +22,7 @@ column_mapping = {
     "Cheese cake": "Sweets and Cakes",
     "Gateau chocolat": "Sweets and Cakes",
     "Pandoro": "Sweets and Cakes",
-    "Orange pound": "Sweets and Cakes",
+    "Orange pgound": "Sweets and Cakes",
 
     "Americano": "Americano",  # Americano'yu ayrı kategori yapıyoruz
     "Caffe latte": "Latte Varieties",
