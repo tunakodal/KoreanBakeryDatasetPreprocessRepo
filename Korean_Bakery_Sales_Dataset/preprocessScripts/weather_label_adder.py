@@ -1,44 +1,55 @@
 import requests
 import csv
 
-# OpenWeatherMap API Key
-#api key yedek : REMOVED
-api_key = 'REMOVED'
-base_url = "http://api.openweathermap.org/data/2.5/weather?"
-
 # CSV dosyasının yolu
-input_file = '/Users/ebrarsudedogan/PycharmProjects/KoreanBakeryDatasetPreprocessRepo/Korean_Bakery_Sales_Dataset/Datasets/KoreanDataset_2.0.csv'
-output_file = '/Users/ebrarsudedogan/PycharmProjects/KoreanBakeryDatasetPreprocessRepo/Korean_Bakery_Sales_Dataset/Datasets/KoreanDataset_3.0.csv'
+input_file = '../Datasets/KoreanDataset_2.3.csv'
+output_file = '../Datasets/KoreanDataset_2.4.csv'
 
 # Hava durumu etiketleri
 weather_labels = {
-    "Clear": 1,  # Sunny
-    "Clouds": 2,  # Cloudy
-    "Rain": 3,  # Rainy
-    "Thunderstorm": 4,  # Thunderstorm
-    "Snow": 5,  # Snow
-    "Wind": 6,  # Windy
-    "Fog": 7,  # Foggy
-    "Drizzle": 8  # Drizzle
+    "clear": "Sunny",
+    "partly-cloudy": "Cloudy",
+    "mostly-cloudy": "Cloudy",
+    "overcast": "Cloudy",
+    "rain": "Rainy",
+    "showers": "Rainy",
+    "drizzle": "Drizzle",
+    "snow": "Snowy",
+    "thunderstorms": "Thunderstorm",
+    "fog": "Foggy",
+    "mist": "Foggy",
+    "haze": "Foggy",
+    "wind": "Windy"
 }
 
 
-def get_weather_by_coords(latitude, longitude):
-    complete_url = f"{base_url}lat={latitude}&lon={longitude}&appid={api_key}"
+# Visual Crossing Weather API URL (Ücretsiz, API anahtarı gerekmez!)
+def get_historical_weather(latitude, longitude, date):
+    base_url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
+    api_key = "REMOVED"  # Ücretsiz bir API anahtarı oluşturmanız gerekebilir
+
+    # API isteği için URL oluştur
+    complete_url = f"{base_url}{latitude},{longitude}/{date}?unitGroup=metric&include=days&key={api_key}&contentType=json"
+
     response = requests.get(complete_url)
 
-    # Yanıtı yazdırarak inceleme
-    print(f"Request URL: {complete_url}")
-    print(f"Response Status Code: {response.status_code}")
-    data = response.json()
-    print(f"API Response: {data}")
+    if response.status_code != 200:
+        print(f"API Error ({response.status_code}): {response.text}")
+        return "N/A"
 
-    if data["cod"] == 200:
-        weather_condition = data["weather"][0]["main"]
-        return weather_labels.get(weather_condition, None)  # None if not found
-    else:
-        print(f"Error: {data.get('message', 'Unknown error')}")
-        return None
+    data = response.json()
+
+    # API yanıtını yazdır (Hata tespiti için)
+    print(f"API Response for {date} at {latitude}, {longitude}: {data}")
+
+    # Günlük hava durumunu kontrol et
+    if "days" in data and len(data["days"]) > 0:
+        conditions = data["days"][0]["conditions"].lower()
+        for key in weather_labels:
+            if key in conditions:
+                return weather_labels[key]
+
+    return "Unknown"
 
 
 # CSV dosyasını okuma ve yazma
@@ -57,15 +68,13 @@ with open(input_file, mode='r', encoding='utf-8') as infile, open(output_file, m
         city_name = row[2]  # Şehir adı 2. sütunda
         latitude = float(row[3])  # Latitude 3. sütunda
         longitude = float(row[4])  # Longitude 4. sütunda
+        date = row[0]  # Date sütunu 0. sütunda
 
-        # Hava durumu etiketini koordinatlarla çekme
-        weather_label = get_weather_by_coords(latitude, longitude)
+        # Visual Crossing API ile tarihsel hava durumu çekme
+        weather_label = get_historical_weather(latitude, longitude, date)
 
-        if weather_label is not None:
-            row.append(weather_label)  # Yeni etiketi son sütuna ekle
-            print(f"City: {city_name}, Weather Label: {weather_label}")  # Ekrana yazdır
-            writer.writerow(row)  # Veriyi yazma
-        else:
-            print(f"City: {city_name}, Weather Label: N/A")  # Hava durumu bulunmazsa N/A yazdır
+        row.append(weather_label)  # Yeni etiketi son sütuna ekle
+        print(f"City: {city_name}, Date: {date}, Weather: {weather_label}")  # Ekrana yazdır
+        writer.writerow(row)  # Veriyi yazma
 
 print(f"Weather labels have been added to {output_file}")

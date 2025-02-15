@@ -45,6 +45,27 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\Korean_Bakery_Sales_Dataset\Datasets\KoreanDataset_2.3.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Korean_Bakery_Sales_Dataset\Datasets\KoreanDataset_2.4.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Korean_Bakery_Sales_Dataset\Datasets\KoreanDataset_3.0.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
