@@ -6,7 +6,7 @@ def add_tuesday_rows(df):
     relevant_days = [7, 1, 3, 4]  # Ortalaması alınacak günler: Sunday, Monday, Wednesday, Thursday
     avg_columns = [
         "Latitude", "Longitude", "AveragePrice", "WTIPrice", "BrentPrice",
-        "tmin", "tmax", "tavg", "wspd", "pres", "isHoliday",
+        "tmin", "tmax", "tavg", "wspd", "pres", "isHoliday", "Americano",
         "Latte Varieties", "Sweets and Cakes", "Croissant Varieties",
         "Fruity and Refreshing Drinks", "Snacks", "Classic Breads and Toasts"
     ]
