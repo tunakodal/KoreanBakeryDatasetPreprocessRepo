@@ -1,8 +1,8 @@
 import pandas as pd
 
 # Datasetleri yükleme
-dataset1 = pd.read_csv("../Datasets/KoreanDataset_1.2.csv")
-dataset2 = pd.read_csv("../Datasets/KoreanDataset_1.7.csv")
+dataset1 = pd.read_csv("../../data/processed/KoreanDataset_1.2.csv")
+dataset2 = pd.read_csv("../../data/processed/KoreanDataset_1.7.csv")
 
 # Dataset1'de Day of Week sütununun ismini kontrol et
 day_col_name = "Day of week" if "Day of week" in dataset1.columns else "day_of_week"
@@ -21,6 +21,6 @@ cols.insert(date_index + 1, cols.pop(cols.index('Day')))
 dataset2 = dataset2[cols]
 
 # Sonuçları kaydetme
-dataset2.to_csv("../Datasets/KoreanDataset_1.8.csv", index=False)
+dataset2.to_csv("../../data/processed/KoreanDataset_1.8.csv", index=False)
 
 print("İşlem tamamlandı. Güncellenmiş dosya 'updated_dataset2.csv' olarak kaydedildi.")

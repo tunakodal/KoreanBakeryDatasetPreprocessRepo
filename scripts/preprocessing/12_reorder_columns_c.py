@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Datasetleri yükleme
-dataset2 = pd.read_csv("../Datasets/KoreanDataset_1.9.csv")
+dataset2 = pd.read_csv("../../data/processed/KoreanDataset_1.9.csv")
 
 # Dataset2'deki kolonları sadece kaydırarak BrentPrice, WTIPrice, AveragePrice'ı Longitude ve tmax arasına taşıma
 cols = dataset2.columns.tolist()
@@ -17,4 +17,4 @@ for col in moving_cols:
 dataset2 = dataset2[cols]
 
 # Sonuçları kaydetme
-dataset2.to_csv("../Datasets/KoreanDataset_2.0.csv", index=False)
+dataset2.to_csv("../../data/processed/KoreanDataset_2.0.csv", index=False)

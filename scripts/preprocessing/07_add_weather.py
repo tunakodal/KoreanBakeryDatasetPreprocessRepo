@@ -3,7 +3,7 @@ from meteostat import Point, Daily
 import time
 
 # Dosyayı oku (parse_dates KULLANMADAN)
-df = pd.read_csv("../Datasets/KoreanDataset_1.5.1.csv")
+df = pd.read_csv("../../data/processed/KoreanDataset_1.5.1.csv")
 
 # Date sütununu datetime formatına çevir
 df["Date"] = pd.to_datetime(df["Date"], errors="coerce", format="%Y-%m-%d")
@@ -46,6 +46,6 @@ for index, row in df.iterrows():
         print(f"Hata (Satır {index}): {e}")
 
 # Güncellenmiş dosyayı kaydet
-df.to_csv("../Datasets/KoreanDataset_1.6.0.csv", index=False)
+df.to_csv("../../data/processed/KoreanDataset_1.6.0.csv", index=False)
 
 print("İşlem tamamlandı! Güncellenmiş dosya kaydedildi.")

@@ -6,7 +6,7 @@ holidays = [
 ]
 
 # CSV dosyasını oku
-df = pd.read_csv("../Datasets/KoreanDataset_4.0.csv")
+df = pd.read_csv("../../data/processed/KoreanDataset_4.0.csv")
 
 # Date kolonundan "MM DD" değerini çıkart
 df['MM DD'] = df['Date'].astype(str).apply(lambda x: x[5:])  # YYYY-MM-DD → MM-DD alır
@@ -26,6 +26,6 @@ if 'pres' in cols:
     df = df[cols]  # Kolon sırasını güncelle
 
 # Güncellenmiş dosyayı kaydet
-df.to_csv("../Datasets/KoreanDataset_5.0.csv", index=False)
+df.to_csv("../../data/processed/KoreanDataset_5.0.csv", index=False)
 
 print("İşlem tamamlandı: 'isHoliday' sütunu eklendi ve dosya kaydedildi.")

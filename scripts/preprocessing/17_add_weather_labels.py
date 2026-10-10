@@ -2,8 +2,8 @@ import requests
 import csv
 
 # CSV dosyasının yolu
-input_file = '../Datasets/KoreanDataset_2.3.csv'
-output_file = '../Datasets/KoreanDataset_2.4.csv'
+input_file = '../../data/processed/KoreanDataset_2.3.csv'
+output_file = '../../data/processed/KoreanDataset_2.4.csv'
 
 # Hava durumu etiketleri
 weather_labels = {

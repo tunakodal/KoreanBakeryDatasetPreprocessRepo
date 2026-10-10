@@ -1,9 +1,9 @@
 import pandas as pd
 
 # Dosya yolları
-csv_file_path = "../Datasets/KoreanDataset_1.6.1.csv"
-log_file_path = "../Logs/NaN_values_1.txt"
-output_csv_path = "../Datasets/KoreanDataset_1.6.2.csv"
+csv_file_path = "../../data/processed/KoreanDataset_1.6.1.csv"
+log_file_path = "../../logs/removed_nan_rows.txt"
+output_csv_path = "../../data/processed/KoreanDataset_1.6.2.csv"
 
 # CSV dosyasını oku
 try:

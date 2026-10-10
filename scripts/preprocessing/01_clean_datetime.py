@@ -3,7 +3,7 @@
 import pandas as pd
 
 # CSV dosyasını oku
-df = pd.read_csv("../Datasets/Bakery Sales.csv")  # Burada kendi dosya adını kullan
+df = pd.read_csv("../../data/raw/bakery_sales.csv")  # Burada kendi dosya adını kullan
 
 # Tarih kolonu adını belirle (örneğin, 'datetime_column' adında olduğunu varsayalım)
 datetime_col = "datetime"  # Gerçek kolon adını buraya yaz
@@ -22,4 +22,4 @@ df = df[cols]
 df = df.dropna(subset=["place"])
 
 # Güncellenmiş CSV dosyasını kaydet
-df.to_csv("../Datasets/KoreanDataset_1.1.csv", index=False)
+df.to_csv("../../data/processed/KoreanDataset_1.1.csv", index=False)

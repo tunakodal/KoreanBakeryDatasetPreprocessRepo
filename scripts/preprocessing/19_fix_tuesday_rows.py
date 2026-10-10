@@ -62,8 +62,8 @@ def add_tuesday_rows(df):
 
 
 # Örnek kullanım
-file_path = "../Datasets/KoreanDataset_3.0.csv"  # Dosyanın adını kendi dosyanla değiştir
+file_path = "../../data/processed/KoreanDataset_3.0.csv"  # Dosyanın adını kendi dosyanla değiştir
 df = pd.read_csv(file_path)
 
 df_updated = add_tuesday_rows(df)
-df_updated.to_csv("../Datasets/KoreanDataset_4.0.csv", index=False)
+df_updated.to_csv("../../data/processed/KoreanDataset_4.0.csv", index=False)

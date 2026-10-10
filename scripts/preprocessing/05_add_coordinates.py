@@ -3,7 +3,7 @@ from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
 
 # CSV dosyanı oku
-df = pd.read_csv("../Datasets/KoreanDataset_1.4.csv")
+df = pd.read_csv("../../data/processed/KoreanDataset_1.4.csv")
 
 # Nominatim Geocoder
 geolocator = Nominatim(user_agent="your_app_name")
@@ -29,6 +29,6 @@ df["Latitude"] = df["Place"].map(lambda x: coordinates_dict.get(x, (None, None))
 df["Longitude"] = df["Place"].map(lambda x: coordinates_dict.get(x, (None, None))[1])
 
 # Yeni dataset'i kaydet
-df.to_csv("../Datasets/KoreanDataset_1.5.0.csv", index=False)
+df.to_csv("../../data/processed/KoreanDataset_1.5.0.csv", index=False)
 
 print("Koordinatlar hızlandırılmış şekilde eklendi! 🚀")

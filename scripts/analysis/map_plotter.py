@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.basemap import Basemap
 
 # CSV dosyanı oku
-df = pd.read_csv("../Datasets/KoreanDataset_2.0.csv")
+df = pd.read_csv("../../data/processed/KoreanDataset_2.0.csv")
 
 # Harita oluştur
 plt.figure(figsize=(10, 8))

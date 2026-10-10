@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # CSV dosyanı oku (Dosya adını değiştir)
-file_path = "../Datasets/KoreanDataset_5.0.csv"  # Gerçek dosya adını buraya yaz
+file_path = "../../data/processed/KoreanDataset_5.0.csv"  # Gerçek dosya adını buraya yaz
 df = pd.read_csv(file_path)
 
 # Tarih sütununun adını kontrol et ve datetime formatına çevir

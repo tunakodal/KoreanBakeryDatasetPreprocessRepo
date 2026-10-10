@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Dosyayı oku
-df = pd.read_csv("../Datasets/KoreanDataset_1.5.0.csv")
+df = pd.read_csv("../../data/processed/KoreanDataset_1.5.0.csv")
 
 # Mevcut sütunları listele
 columns = df.columns.tolist()
@@ -23,4 +23,4 @@ new_order = new_order[: place_index + 1] + ["Latitude", "Longitude"] + new_order
 df = df[new_order]
 
 # Güncellenmiş CSV dosyasını kaydet
-df.to_csv("../Datasets/KoreanDataset_1.5.1.csv", index=False)
+df.to_csv("../../data/processed/KoreanDataset_1.5.1.csv", index=False)

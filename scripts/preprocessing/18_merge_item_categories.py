@@ -1,8 +1,8 @@
 import pandas as pd
 
 # Dosya yolları
-input_file = "../Datasets/KoreanDataset_2.4.csv"
-output_file = "../Datasets/KoreanDataset_3.0.csv"
+input_file = "../../data/processed/KoreanDataset_2.4.csv"
+output_file = "../../data/processed/KoreanDataset_3.0.csv"
 
 # CSV dosyasını oku
 df = pd.read_csv(input_file)

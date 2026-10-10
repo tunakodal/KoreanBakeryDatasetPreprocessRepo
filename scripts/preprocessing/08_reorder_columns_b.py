@@ -1,7 +1,7 @@
 import pandas as pd
 
 # CSV dosyanı oku
-df = pd.read_csv("../Datasets/KoreanDataset_1.6.0.csv")
+df = pd.read_csv("../../data/processed/KoreanDataset_1.6.0.csv")
 
 # Kolonları yeniden sırala
 columns = list(df.columns)
@@ -24,6 +24,6 @@ new_order = columns[:longitude_idx + 1] + insert_cols + columns[longitude_idx + 
 df = pd.concat([df.iloc[:, :longitude_idx + 1], moved_cols, df.iloc[:, longitude_idx + 1:]], axis=1)
 
 # Yeni dosyayı kaydet
-df.to_csv("../Datasets/KoreanDataset_1.6.1.csv", index=False)
+df.to_csv("../../data/processed/KoreanDataset_1.6.1.csv", index=False)
 
 print("Kolonlar başarıyla taşındı ve tekrar edenler silindi.")

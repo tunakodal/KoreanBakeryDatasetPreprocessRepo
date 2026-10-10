@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Dataset'i oku
-df = pd.read_csv("../Datasets/KoreanDataset_2.1.csv")  # Kendi dosyanın adını buraya yaz
+df = pd.read_csv("../../data/processed/KoreanDataset_2.1.csv")  # Kendi dosyanın adını buraya yaz
 
 # Benzersiz değerler için bir mapping oluştur
 place_mapping = {}
@@ -20,6 +20,6 @@ def map_place(place):
 df["Place"] = df["Place"].apply(map_place)
 
 # Güncellenmiş dataset'i kaydet
-df.to_csv("../Datasets/KoreanDataset_2.2.csv", index=False)
+df.to_csv("../../data/processed/KoreanDataset_2.2.csv", index=False)
 
 print("Place sütunu sayısal değerlere çevrildi ve dosyaya kaydedildi.")
