@@ -1,3 +1,4 @@
+import os
 import requests
 import csv
 
@@ -26,7 +27,7 @@ weather_labels = {
 # Visual Crossing Weather API URL (Ücretsiz, API anahtarı gerekmez!)
 def get_historical_weather(latitude, longitude, date):
     base_url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
-    api_key = "REMOVED"  # Ücretsiz bir API anahtarı oluşturmanız gerekebilir
+    api_key = os.environ["VISUAL_CROSSING_API_KEY"]  # Visual Crossing API anahtarı ortam değişkeninden okunur
 
     # API isteği için URL oluştur
     complete_url = f"{base_url}{latitude},{longitude}/{date}?unitGroup=metric&include=days&key={api_key}&contentType=json"
